@@ -1,0 +1,10 @@
+Package: xavamess
+Type: Package
+Title: Various useful functions
+Version: 0.1
+Date: 2015-02-05
+Author: Xavier Robin
+Maintainer: Xavier Robin <xavier.robin@bric.ku.dk>
+Description: This package contains one useful function
+License: GPL-3
+Imports: stringr
