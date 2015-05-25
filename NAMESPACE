@@ -2,4 +2,5 @@
 
 export("%+%")
 export(elongate)
+export(loadToList)
 importFrom(stringr,str_split)
