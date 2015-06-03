@@ -2,4 +2,5 @@
 
 export("%+%")
 export(elongate)
+export(sparse.extract.index)
 importFrom(stringr,str_split)
