@@ -7,4 +7,4 @@ Author: Xavier Robin
 Maintainer: Xavier Robin <xavier.robin@bric.ku.dk>
 Description: Useful miscellaneous functions developed by Xavier Robin over the years
 License: GPL-3
-Imports: stringr
+Imports: stringr, parallel

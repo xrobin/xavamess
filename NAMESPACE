@@ -3,5 +3,7 @@
 export("%+%")
 export(elongate)
 export(sparse.extract.index)
+export(guessCores)
 export(loadToList)
+importFrom(parallel,detectCores)
 importFrom(stringr,str_split)
