@@ -9,9 +9,9 @@ sparse.extract.index(i, j, nrow, ncol, byrow = FALSE, na.rm = FALSE,
   quiet = TRUE)
 }
 \arguments{
-\item{i,j}{the indices of the elements to extract. Must have the same length.}
+\item{i, j}{the indices of the elements to extract. Must have the same length.}
 
-\item{nrow,ncol}{the number of rows and colums of the index. currently, \code{ncol} is ignored with \code{byrow = FALSE}, \code{nrow} is ignored with \code{byrow = TRUE}}
+\item{nrow, ncol}{the number of rows and colums of the index. currently, \code{ncol} is ignored with \code{byrow = FALSE}, \code{nrow} is ignored with \code{byrow = TRUE}}
 
 \item{byrow}{only \code{FALSE} is supported for now}
 

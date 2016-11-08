@@ -15,4 +15,14 @@ a list with the named contents of \code{\link{file}}
 \description{
 Load an R dataset written with the \code{\link{save}} function into a \code{\link{list}}
 }
+\examples{
+fname <- tempfile()
+a <- "b"
+b <- 5
+save(a, b, file=fname)
+loadToList(fname)
+\dontshow{
+stopifnot(identical(loadToList(fname), list(a="b", b=5)))
+}
+}
 

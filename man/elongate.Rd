@@ -22,7 +22,7 @@ elongated.score <- elongate(pseudo.wide$Protein, pseudo.wide$Score)
 elongated.sequence <- elongate(pseudo.wide$Protein, pseudo.wide$Sequence)
 # The following works only if the Score and Sequence have the same pattern
 # (ie same number of splits per ID)
-elongated <- data.frame(Protein = elongated.score$id,
+elongated <- data.frame(Protein = elongated.score$id, 
                         Score = elongated.score$wide,
                         Sequence = elongated.sequence$wide)
 \dontshow{

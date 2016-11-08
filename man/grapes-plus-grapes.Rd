@@ -7,7 +7,7 @@
 x \%+\% y
 }
 \arguments{
-\item{x,y}{the strings to concatenate}
+\item{x, y}{the strings to concatenate}
 }
 \value{
 the concatenated string
