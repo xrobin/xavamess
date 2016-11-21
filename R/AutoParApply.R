@@ -8,13 +8,15 @@
 #' autoParLapply(1:10, function(x) x^2)
 #' @export
 autoParLapply <- function(X, FUN, ...) {
+	# Do not start more than length(X) workers
 	ncpus <- min(guessCores(), length(X))
 	if (ncpus > 1) {
 		if (!require(parallel)) {
 			stop("parallel package required with more than 1 cores")
 		}
-		# Do not start more than length(X) workers
 		cl <- makeCluster(ncpus)
+		# Export all .GlobalEnv
+		clusterExport(cl, ls(envir = .GlobalEnv), envir = .GlobalEnv)
 		ret <- parLapply(cl = cl, X, FUN, ...)
 		stopCluster(cl)
 		return(ret)
