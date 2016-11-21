@@ -12,10 +12,10 @@
 #' }
 #' @export
 loadToList <- function(file) {
-  loaded.object.names <- load(file)
-  ret <- list()
-  for (object.name in loaded.object.names) {
-    ret[[object.name]] <- get(object.name)
-  }
-  return(ret)
+	loaded.object.names <- load(file)
+	ret <- list()
+	for (object.name in loaded.object.names) {
+		ret[[object.name]] <- get(object.name)
+	}
+	return(ret)
 }

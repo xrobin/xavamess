@@ -5,7 +5,7 @@
 #' @rdname transformations
 #' @name transformations
 
-#' @examples 
+#' @examples
 #' curve(sqrt.transform(x), -2, 2, n = 1000)
 #' @export sqrt.transform
 #' @usage sqrt.transform(x)
@@ -13,7 +13,7 @@ sqrt.transform <- function(x) sign(x) * sqrt(abs(x))
 
 #' @rdname transformations
 #' @param exp the exponent for the transoformation x^exp
-#' @examples 
+#' @examples
 #' curve(power.transform(x), -2, 2, n = 1000)
 #' curve(power.transform(x, 3), -2, 2, n = 1000)
 #' @rdname transformations
@@ -22,7 +22,7 @@ power.transform <- function(x, exp = 1/2) sign(x) * abs(x)^exp
 
 #' @rdname transformations
 #' @param base the logarithm base
-#' @examples 
+#' @examples
 #' curve(log.transform(x), -2, 2, n = 1000)
 #' curve(log.transform(x, 10), -2, 2, n = 1000)
 #' @export log.transform

@@ -7,5 +7,5 @@
 #' @export
 
 "%+%" <- function(x, y) {
-  return(paste0(x, y))
+	return(paste0(x, y))
 }
