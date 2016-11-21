@@ -3,6 +3,7 @@
 #' Various scale transformation functions. These will keep the sign of x (and are basically \code{sign(x) * FUN(abs(x))})
 #' @param x the data to transform
 #' @rdname transformations
+#' @name transformations
 
 #' @examples 
 #' curve(sqrt.transform(x), -2, 2, n = 1000)
