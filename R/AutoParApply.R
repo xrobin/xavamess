@@ -12,7 +12,7 @@ autoParLapply <- function(X, FUN, ...) {
 	# Do not start more than length(X) workers
 	ncpus <- min(guessCores(verbose = FALSE), length(X))
 	if (ncpus > 1) {
-		if (!require(parallel)) {
+		if (!requireNamespace(parallel)) {
 			stop("parallel package required with more than 1 cores")
 		}
 		cl <- makeCluster(ncpus)
@@ -37,7 +37,7 @@ autoParSapply <- function(X, FUN, ...) {
 	# Do not start more than length(X) workers
 	ncpus <- min(guessCores(verbose = FALSE), length(X))
 	if (ncpus > 1) {
-		if (!require(parallel)) {
+		if (!requireNamespace(parallel)) {
 			stop("parallel package required with more than 1 cores")
 		}
 		cl <- makeCluster(ncpus)
@@ -66,7 +66,7 @@ autoParApply <- function(X, MARGIN, FUN, ...) {
 	# Do not start more than length(X) workers
 	ncpus <- min(guessCores(verbose = FALSE), l)
 	if (ncpus > 1) {
-		if (!require(parallel)) {
+		if (!requireNamespace(parallel)) {
 			stop("parallel package required with more than 1 cores")
 		}
 		cl <- makeCluster(ncpus)
