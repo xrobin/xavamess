@@ -30,7 +30,7 @@ autoParSapply <- function(X, FUN, ...) {
 autoParApply <- function(X, MARGIN, FUN, ...) {
 	# What is length(X)?
 	l <- prod(dim(X)[MARGIN])
-	return(autoParXapply(list(apply, parApply), X=X, MARGIN=MARGIN, FUN=FUN, ...))
+	return(autoParXapply(l, list(apply, parApply), X=X, MARGIN=MARGIN, FUN=FUN, ...))
 }
 
 
@@ -39,10 +39,10 @@ autoParApply <- function(X, MARGIN, FUN, ...) {
 # @param .XFUN a list containing the two functions to use (normal, parallel)
 # @param .XLEN the length of the problem (ie number of calls to FUN)
 # eg autoParXapply(length(X), list(sapply, parSapply), ...) for sapply
-# ... contains MARGIN and FUN
+# ... contains MARGIN and FUN now
 autoParXapply <- function(.XLEN, .XFUN, X, ...) {
 	# Do not start more than length(X) workers
-	ncpus <- min(guessCores(), .XLEN)
+	ncpus <- min(guessCores(verbose = FALSE), .XLEN)
 	if (ncpus > 1) {
 		if (!require(parallel)) {
 			stop("parallel package required with more than 1 cores")
@@ -55,6 +55,6 @@ autoParXapply <- function(.XLEN, .XFUN, X, ...) {
 		return(ret)
 	}
 	else {
-		return(.XFUN[[1]](X, FUN, ...))
+		return(.XFUN[[1]](X, ...))
 	}
 }
