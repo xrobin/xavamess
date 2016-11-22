@@ -15,7 +15,7 @@ autoParSapply(X, FUN, ...)
 autoParApply(X, MARGIN, FUN, ...)
 }
 \arguments{
-\item{X, FUN, ...}{arguments to \code{\link{lapply}}}
+\item{X, MARGIN, FUN, ...}{arguments to \code{\link{lapply}}, \code{\link{sapply}} and \code{\link{apply}}}
 }
 \description{
 *apply with auto-parallelization if available

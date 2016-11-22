@@ -15,7 +15,7 @@ a number of cores to use
 }
 \description{
 First checks the environment variable NCPUS. This will typically be set in PBS jobs to the number of cores assigned to the job.
-Otherwise, will use the number of CPUs with \code{\link{parallel::detectCores}}. If that fails or returns more than 12 cores, it will go back to 1 (as this is indicative that the job is being run on a supercomputer but without the NCPUS properly set)
+Otherwise, will use the number of CPUs with \code{\link{detectCores}}. If that fails or returns more than 12 cores, it will go back to 1 (as this is indicative that the job is being run on a supercomputer but without the NCPUS properly set)
 }
 \examples{
 print(ncpus <- guessCores())
