@@ -8,7 +8,22 @@
 #' autoParLapply(1:10, function(x) x^2)
 #' @export
 autoParLapply <- function(X, FUN, ...) {
-	return(autoParXapply(length(X), list(lapply, parLapply), X=X, FUN=FUN, ...))
+	# Do not start more than length(X) workers
+	ncpus <- min(guessCores(verbose = FALSE), length(X))
+	if (ncpus > 1) {
+		if (!require(parallel)) {
+			stop("parallel package required with more than 1 cores")
+		}
+		cl <- makeCluster(ncpus)
+		# Export all .GlobalEnv
+		clusterExport(cl, ls(envir = .GlobalEnv), envir = .GlobalEnv)
+		ret <- parLapply(cl = cl, X, fun=FUN, ...)
+		stopCluster(cl)
+		return(ret)
+	}
+	else {
+		return(lapply(X, FUN, ...))
+	}
 }
 
 
@@ -17,7 +32,22 @@ autoParLapply <- function(X, FUN, ...) {
 #' autoParSapply(1:10, function(x) x^2)
 #' @export
 autoParSapply <- function(X, FUN, ...) {
-	return(autoParXapply(length(X), list(sapply, parSapply), X=X, FUN=FUN, ...))
+	# Do not start more than length(X) workers
+	ncpus <- min(guessCores(verbose = FALSE), length(X))
+	if (ncpus > 1) {
+		if (!require(parallel)) {
+			stop("parallel package required with more than 1 cores")
+		}
+		cl <- makeCluster(ncpus)
+		# Export all .GlobalEnv
+		clusterExport(cl, ls(envir = .GlobalEnv), envir = .GlobalEnv)
+		ret <- parSapply(cl = cl, X, FUN=FUN, ...)
+		stopCluster(cl)
+		return(ret)
+	}
+	else {
+		return(sapply(X, FUN, ...))
+	}
 }
 
 
@@ -30,19 +60,8 @@ autoParSapply <- function(X, FUN, ...) {
 autoParApply <- function(X, MARGIN, FUN, ...) {
 	# What is length(X)?
 	l <- prod(dim(X)[MARGIN])
-	return(autoParXapply(l, list(apply, parApply), X=X, MARGIN=MARGIN, FUN=FUN, ...))
-}
-
-
-# This is the generic function
-# It takes two extra arguments:
-# @param .XFUN a list containing the two functions to use (normal, parallel)
-# @param .XLEN the length of the problem (ie number of calls to FUN)
-# eg autoParXapply(length(X), list(sapply, parSapply), ...) for sapply
-# ... contains MARGIN and FUN now
-autoParXapply <- function(.XLEN, .XFUN, X, ...) {
 	# Do not start more than length(X) workers
-	ncpus <- min(guessCores(verbose = FALSE), .XLEN)
+	ncpus <- min(guessCores(verbose = FALSE), l)
 	if (ncpus > 1) {
 		if (!require(parallel)) {
 			stop("parallel package required with more than 1 cores")
@@ -50,11 +69,11 @@ autoParXapply <- function(.XLEN, .XFUN, X, ...) {
 		cl <- makeCluster(ncpus)
 		# Export all .GlobalEnv
 		clusterExport(cl, ls(envir = .GlobalEnv), envir = .GlobalEnv)
-		ret <- .XFUN[[2]](cl = cl, X, ...)
+		ret <- parApply(cl = cl, X, MARGIN, FUN, ...)
 		stopCluster(cl)
 		return(ret)
 	}
 	else {
-		return(.XFUN[[1]](X, ...))
+		return(apply(X, MARGIN, FUN, ...))
 	}
 }
