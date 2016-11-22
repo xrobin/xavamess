@@ -21,6 +21,19 @@ autoParSapply <- function(X, FUN, ...) {
 }
 
 
+#' @rdname autoParApply
+#' @examples
+#' x <- array(1:30, dim=c(2, 5, 3))
+#' autoParApply(x, 1, sum)
+#' autoParApply(x, c(1, 3), sum)
+#' @export
+autoParApply <- function(X, MARGIN, FUN, ...) {
+	# What is length(X)?
+	l <- prod(dim(X)[MARGIN])
+	return(autoParXapply(list(apply, parApply), X=X, MARGIN=MARGIN, FUN=FUN, ...))
+}
+
+
 # This is the generic function
 # It takes two extra arguments:
 # @param .XFUN a list containing the two functions to use (normal, parallel)
