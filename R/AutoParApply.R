@@ -8,7 +8,7 @@
 #' autoParLapply(1:10, function(x) x^2)
 #' @export
 autoParLapply <- function(X, FUN, ...) {
-	return(autoParXapply(list(lapply, parLapply), X=X, FUN=FUN, ...))
+	return(autoParXapply(length(X), list(lapply, parLapply), X=X, FUN=FUN, ...))
 }
 
 
@@ -17,18 +17,19 @@ autoParLapply <- function(X, FUN, ...) {
 #' autoParSapply(1:10, function(x) x^2)
 #' @export
 autoParSapply <- function(X, FUN, ...) {
-	return(autoParXapply(list(sapply, parSapply), X=X, FUN=FUN, ...))
+	return(autoParXapply(length(X), list(sapply, parSapply), X=X, FUN=FUN, ...))
 }
 
 
 # This is the generic function
-# It takes an extra argument .XFUN which is a list
-# containing the two functions to use
-# eg autoParXapply(list(sapply, parSapply), ...) for sapply
+# It takes two extra arguments:
+# @param .XFUN a list containing the two functions to use (normal, parallel)
+# @param .XLEN the length of the problem (ie number of calls to FUN)
+# eg autoParXapply(length(X), list(sapply, parSapply), ...) for sapply
 # ... contains MARGIN and FUN
-autoParXapply <- function(.XFUN, X, ...) {
+autoParXapply <- function(.XLEN, .XFUN, X, ...) {
 	# Do not start more than length(X) workers
-	ncpus <- min(guessCores(), length(X))
+	ncpus <- min(guessCores(), .XLEN)
 	if (ncpus > 1) {
 		if (!require(parallel)) {
 			stop("parallel package required with more than 1 cores")
