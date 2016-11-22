@@ -102,7 +102,7 @@ prepareNodes <- function(cl) {
 	for (en in rev(envs)) {
 		if (str_detect(en, "^package:")) {
 			packageName <- str_match(en, "^package:(.+)")[,2]
-			cmd <- paste("clusterEvalQ(cl, library(", packageName, "))")
+			cmd <- paste("parallel::clusterEvalQ(cl, library(", packageName, "))")
 			eval(parse(text = cmd))
 		}
 		# For now we don't do anything for non-packages, but we could do something like this
