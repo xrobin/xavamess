@@ -2,8 +2,8 @@
 #' autoPar*apply functions guess the number of cores to use and
 #' run in parallel if possible.
 #' @rdname autoParApply
-#' @param X,FUN,... arguments to \code{\link{lapply}}
-#' @importFrom parallel parLapply
+#' @param X,MARGIN,FUN,... arguments to \code{\link{lapply}}, \code{\link{sapply}} and \code{\link{apply}}
+#' @importFrom parallel parLapply clusterExport makeCluster parApply parSapply stopCluster
 #' @importFrom stringr str_detect str_match
 #' @examples
 #' autoParLapply(1:10, function(x) x^2)
