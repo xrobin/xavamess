@@ -6,9 +6,9 @@
 #' a <- "b"
 #' b <- 5
 #' save(a, b, file=fname)
-#' loadToList(fname)
+#' l <- loadToList(fname)
 #' \dontshow{
-#' stopifnot(identical(loadToList(fname), list(a="b", b=5)))
+#' stopifnot(identical(l, list(a="b", b=5)))
 #' }
 #' @export
 loadToList <- function(file) {
