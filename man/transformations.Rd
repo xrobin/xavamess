@@ -7,7 +7,7 @@
 \alias{sqrt.transform}
 \alias{transform}
 \alias{transformations}
-\title{Transfomrations}
+\title{Transformations}
 \usage{
 sqrt.transform(x)
 

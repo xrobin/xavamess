@@ -1,4 +1,4 @@
-#' @title Transfomrations
+#' @title Transformations
 #' @description
 #' Various scale transformation functions. These will keep the sign of x (and are basically \code{sign(x) * FUN(abs(x))})
 #' @param x the data to transform
