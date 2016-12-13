@@ -9,5 +9,6 @@ Description: A compilation of miscellaneous functions developed by Xavier Robin 
 License: GPL-3
 Imports:
     stringr,
-    parallel
+    parallel,
+    MASS
 RoxygenNote: 5.0.1
