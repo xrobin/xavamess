@@ -28,3 +28,10 @@ power.transform <- function(x, exp = 1/2) sign(x) * abs(x)^exp
 #' @export log.transform
 #' @usage log.transform(x, base = exp(1))
 log.transform <- function(x, base = exp(1)) sign(x) * log(abs(x), base = base)
+
+#' @rdname transformations
+#' @param FUN the transformation function, defined on the range [0, +Inf]
+#' @examples
+#' curve(FUN.transform(x, FUN = function(x) x + 2 * x^3), -2, 2)
+#' @export
+FUN.transform <- function(x, FUN) sign(x) * FUN(abs(x))
