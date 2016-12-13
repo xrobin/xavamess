@@ -18,7 +18,7 @@ log.transform(x, base = exp(1))
 FUN.transform(x, FUN, ...)
 }
 \arguments{
-\item{x}{the data to transform}
+\item{x}{the data vector to transform}
 
 \item{exp}{the exponent for the transoformation x^exp}
 

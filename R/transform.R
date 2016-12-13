@@ -1,7 +1,7 @@
 #' @title Transformations
 #' @description
 #' Various scale transformation functions. These will keep the sign of x (and are basically \code{sign(x) * FUN(abs(x))})
-#' @param x the data to transform
+#' @param x the data vector to transform
 #' @rdname transformations
 #' @name transformations
 #' @aliases transform
