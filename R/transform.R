@@ -4,6 +4,7 @@
 #' @param x the data to transform
 #' @rdname transformations
 #' @name transformations
+#' @aliases transform
 
 #' @examples
 #' curve(sqrt.transform(x), -2, 2, n = 1000)

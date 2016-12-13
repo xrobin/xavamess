@@ -5,6 +5,7 @@
 \alias{log.transform}
 \alias{power.transform}
 \alias{sqrt.transform}
+\alias{transform}
 \alias{transformations}
 \title{Transfomrations}
 \usage{
