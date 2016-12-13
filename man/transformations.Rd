@@ -15,7 +15,7 @@ power.transform(x, exp = 1/2)
 
 log.transform(x, base = exp(1))
 
-FUN.transform(x, FUN)
+FUN.transform(x, FUN, ...)
 }
 \arguments{
 \item{x}{the data to transform}
@@ -36,5 +36,7 @@ curve(power.transform(x, 3), -2, 2, n = 1000)
 curve(log.transform(x), -2, 2, n = 1000)
 curve(log.transform(x, 10), -2, 2, n = 1000)
 curve(FUN.transform(x, FUN = function(x) x + 2 * x^3), -2, 2)
+curve(FUN.transform(x, FUN = function(x, a, b) x + a * x^b, a = 2, b = 3), -2, 2)
+curve(FUN.transform(x, FUN = function(x, a, b) x + a * x^b, a = 4, b = 5), -2, 2)
 }
 
