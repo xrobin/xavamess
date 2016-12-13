@@ -32,6 +32,7 @@ log.transform <- function(x, base = exp(1)) sign(x) * log(abs(x), base = base)
 
 #' @rdname transformations
 #' @param FUN the transformation function, defined on the range [0, +Inf]
+#' @param ... additional arguments for \code{FUN}
 #' @examples
 #' curve(FUN.transform(x, FUN = function(x) x + 2 * x^3), -2, 2)
 #' curve(FUN.transform(x, FUN = function(x, a, b) x + a * x^b, a = 2, b = 3), -2, 2)

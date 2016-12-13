@@ -25,6 +25,8 @@ FUN.transform(x, FUN, ...)
 \item{base}{the logarithm base}
 
 \item{FUN}{the transformation function, defined on the range [0, +Inf]}
+
+\item{...}{additional arguments for \code{FUN}}
 }
 \description{
 Various scale transformation functions. These will keep the sign of x (and are basically \code{sign(x) * FUN(abs(x))})
