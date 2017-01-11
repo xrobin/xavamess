@@ -1,17 +1,20 @@
-#' Computes a matrix index that extracts individual (i, j) elements instead of the standard where all columns in rows \code{i} and all rows in columns \code{j} are extracted.
-#' Note that this is likely to NOT work on data frames
-#' @param i,j the indices of the elements to extract. Must have the same length.
+#' Sparse indexing of matrices
+#'
+#' Computes a matrix index that extracts individual (i, j) elements. This differ from the standard \link[=Extract]{extraction} where all columns in rows \code{i} and all rows in columns \code{j} are extracted.
+#'
+#' Note that this is likely to NOT work on data frames.
+#' @param i,j the indices of the elements to extract. \code{i} and \code{j} must have the same length.
 #' @param nrow,ncol the number of rows and colums of the index. currently, \code{ncol} is ignored with \code{byrow = FALSE}, \code{nrow} is ignored with \code{byrow = TRUE}
 #' @param byrow only \code{FALSE} is supported for now
 #' @param na.rm remove elements where i or j are \code{NA}
 #' @param quiet if \code{FALSE}, prints a \code{\link{message}} before removing the missing values. If \code{TRUE}, missing values are silently removed.
-#' @return the vector index for the matrix
+#' @return the vector index for the matrix. Typically one would want to use this index to \link[=Extract]{extract} from a matrix, and a vector will be returned, regardless of the status of \code{drop}.
 #' @examples
 #' m <- matrix(1:25, 5, 5)
 #' m[1:5, 1:5] # Returns the whole matrix
 #' m[sparse.extract.index(1:5, 1:5, nrow = 5)] # Returns the diagonal only
 #' m[c(1, 3, 5), c(2, 4, 4)]
-#' m[sparse.extract.index(c(1, 3, 5), c(2, 4, 4), nrow = 5)] # Returns the diagonal only
+#' m[sparse.extract.index(c(1, 3, 5), c(2, 4, 4), nrow = 5)]
 #' @export
 sparse.extract.index <- function(i, j, nrow, ncol, byrow = FALSE, na.rm = FALSE, quiet = TRUE) {
 	if (na.rm && any(nas <- is.na(i + j))) {

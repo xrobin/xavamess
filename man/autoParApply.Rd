@@ -4,9 +4,7 @@
 \alias{autoParApply}
 \alias{autoParLapply}
 \alias{autoParSapply}
-\title{*apply with auto-parallelization if available
-autoPar*apply functions guess the number of cores to use and
-run in parallel if possible.}
+\title{*apply with auto-parallelization if available}
 \usage{
 autoParLapply(X, FUN, ...)
 
@@ -15,12 +13,12 @@ autoParSapply(X, FUN, ...)
 autoParApply(X, MARGIN, FUN, ...)
 }
 \arguments{
-\item{X, MARGIN, FUN, ...}{arguments to \code{\link{lapply}}, \code{\link{sapply}} and \code{\link{apply}}}
+\item{X, MARGIN, FUN, ...}{arguments to \code{\link{lapply}}, \code{\link{sapply}} and \code{\link{apply}} or their parallel equivalents}
 }
 \description{
-*apply with auto-parallelization if available
 autoPar*apply functions guess the number of cores to use and
-run in parallel if possible.
+run in parallel if possible. \dQuote{L}, \dQuote{S} and \dQuote{} (nothing) are available.
+This function will make all objects in the global environment, and all currently loaded packages available to the parallel cluster nodes. This may fail in unexpected ways if other environments are \link[=attach]{attached} to the search path.
 }
 \examples{
 autoParLapply(1:10, function(x) x^2)

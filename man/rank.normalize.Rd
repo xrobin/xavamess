@@ -2,8 +2,7 @@
 % Please edit documentation in R/normalize.R
 \name{rank.normalize}
 \alias{rank.normalize}
-\title{Rank normalization
-This function fits the data exactly to the normal distribution (or any other quantile function given as \code{FUN}) using corresponding quantiles.}
+\title{Rank normalization}
 \usage{
 rank.normalize(x, FUN = qnorm, ties.method = "average", na.action)
 }
@@ -20,7 +19,6 @@ rank.normalize(x, FUN = qnorm, ties.method = "average", na.action)
 the normalized data
 }
 \description{
-Rank normalization
 This function fits the data exactly to the normal distribution (or any other quantile function given as \code{FUN}) using corresponding quantiles.
 }
 \examples{

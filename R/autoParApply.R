@@ -1,8 +1,10 @@
 #' *apply with auto-parallelization if available
+#'
 #' autoPar*apply functions guess the number of cores to use and
-#' run in parallel if possible.
+#' run in parallel if possible. \dQuote{L}, \dQuote{S} and \dQuote{} (nothing) are available.
+#' This function will make all objects in the global environment, and all currently loaded packages available to the parallel cluster nodes. This may fail in unexpected ways if other environments are \link[=attach]{attached} to the search path.
 #' @rdname autoParApply
-#' @param X,MARGIN,FUN,... arguments to \code{\link{lapply}}, \code{\link{sapply}} and \code{\link{apply}}
+#' @param X,MARGIN,FUN,... arguments to \code{\link{lapply}}, \code{\link{sapply}} and \code{\link{apply}} or their parallel equivalents
 #' @importFrom parallel parLapply clusterExport makeCluster parApply parSapply stopCluster
 #' @importFrom stringr str_detect str_match
 #' @examples

@@ -1,4 +1,5 @@
 #' Rank normalization
+#'
 #' This function fits the data exactly to the normal distribution (or any other quantile function given as \code{FUN}) using corresponding quantiles.
 #' @param x the data to normalize
 #' @param ties.method the \code{ties.method} argument for \code{\link{rank}}
