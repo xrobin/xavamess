@@ -7,7 +7,10 @@
 diffdensity.plot(x1, x2, y1, y2, bw = bw.nrd, n = 100,
   ztransform = sqrt.transform, zlim = NULL, zlim.mult = 1,
   relative = FALSE, plot.d1 = FALSE, plot.d2 = FALSE, plot.diff = TRUE,
-  draw.contour = TRUE, contour.levels = NULL, col1 = "blue",
+  draw.contour = TRUE, contour.levels = NULL,
+  xlim = extendrange(range(c(x1, x2)), f = extendrange.x),
+  ylim = extendrange(range(c(y1, y2)), f = extendrange.y), extendrange = 0,
+  extendrange.x = extendrange, extendrange.y = extendrange, col1 = "blue",
   col2 = "red", bg.col = "white", ncol = 101, add = FALSE, ...)
 }
 \arguments{
@@ -32,6 +35,10 @@ diffdensity.plot(x1, x2, y1, y2, bw = bw.nrd, n = 100,
 \item{draw.contour}{whether to overlay a \code{\link{contour}} on the diff plot. Ignored if \code{plot.diff = FALSE}.}
 
 \item{contour.levels}{levels at which to draw contour lines, see the \code{levels} argument to \code{\link{contour}}}
+
+\item{xlim, ylim}{limits of the plot on x and y.}
+
+\item{extendrange, extendrange.x, extendrange.y}{extend \code{xlim} and \code{ylim} by a this fraction. Ignored if \code{xlim} and \code{ylim} are provided.}
 
 \item{col1, col2}{colors to represent the two distributions.}
 
@@ -80,6 +87,17 @@ plot.d1 = TRUE, plot.d2 = TRUE, relative = TRUE)
 # Increase resolution
 diffdensity.plot(x1, x2, y1, y2, bw = function(x) bw.nrd(x) * 10,
 		n = 500)
+
+# Try an assymetric distribution
+y1 <- rexp(10000, rate = 1)
+y2 <- rexp(10000, rate = 1.5)
+diffdensity.plot(x1, x2, y1, y2, bw = function(x) bw.nrd(x) * 10)
+
+# A bit off the density is clipped in y, so extend the limits
+diffdensity.plot(x1, x2, y1, y2, bw = function(x) bw.nrd(x) * 10, extendrange.y = .1)
+diffdensity.plot(x1, x2, y1, y2, bw = function(x) bw.nrd(x) * 10, extendrange = .1, extendrange.x = 0)
+# Extend in x as well
+diffdensity.plot(x1, x2, y1, y2, bw = function(x) bw.nrd(x) * 10, extendrange = .1)
 
 }
 \seealso{

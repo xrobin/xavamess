@@ -9,6 +9,8 @@
 #' @param plot.diff whether to plot the differential densities. Enabled by default.
 #' @param draw.contour whether to overlay a \code{\link{contour}} on the diff plot. Ignored if \code{plot.diff = FALSE}.
 #' @param contour.levels levels at which to draw contour lines, see the \code{levels} argument to \code{\link{contour}}
+#' @param xlim,ylim limits of the plot on x and y.
+#' @param extendrange,extendrange.x,extendrange.y extend \code{xlim} and \code{ylim} by a this fraction. Ignored if \code{xlim} and \code{ylim} are provided.
 #' @param col1,col2 colors to represent the two distributions.
 #' @param bg.col the background color.
 #' @param ncol the number of colors of the palette. Should be an odd number to avoid weird effects around 0
@@ -23,7 +25,7 @@
 #' }
 #' @seealso \href{http://stackoverflow.com/questions/28521145/r-calculate-and-plot-difference-between-two-density-countours}{The Stack Overflow answer} that inspired this function
 #' @importFrom MASS kde2d
-#' @importFrom grDevices colorRampPalette
+#' @importFrom grDevices colorRampPalette extendrange
 #' @importFrom graphics image contour
 #' @examples
 #' # Get some gaussian distributions
@@ -53,14 +55,26 @@
 #' diffdensity.plot(x1, x2, y1, y2, bw = function(x) bw.nrd(x) * 10,
 #' 		n = 500)
 #'
+#' # Try an assymetric distribution
+#' y1 <- rexp(10000, rate = 1)
+#' y2 <- rexp(10000, rate = 1.5)
+#' diffdensity.plot(x1, x2, y1, y2, bw = function(x) bw.nrd(x) * 10)
+#'
+#' # A bit off the density is clipped in y, so extend the limits
+#' diffdensity.plot(x1, x2, y1, y2, bw = function(x) bw.nrd(x) * 10, extendrange.y = .1)
+#' diffdensity.plot(x1, x2, y1, y2, bw = function(x) bw.nrd(x) * 10, extendrange = .1, extendrange.x = 0)
+#' # Extend in x as well
+#' diffdensity.plot(x1, x2, y1, y2, bw = function(x) bw.nrd(x) * 10, extendrange = .1)
+#'
 #' @export
 diffdensity.plot <- function(x1, x2, y1, y2, bw = bw.nrd, n = 100,
 							 ztransform = sqrt.transform, zlim = NULL, zlim.mult = 1, relative = FALSE,
 							 plot.d1 = FALSE, plot.d2 = FALSE, plot.diff = TRUE,
 							 draw.contour = TRUE, contour.levels = NULL,
+							 xlim = extendrange(range(c(x1, x2)), f = extendrange.x),
+							 ylim = extendrange(range(c(y1, y2)), f = extendrange.y),
+							 extendrange = 0, extendrange.x = extendrange, extendrange.y = extendrange,
 							 col1 = "blue", col2 = "red", bg.col = "white", ncol = 101, add = FALSE, ...) {
-	xrange = range(c(x1, x2))
-	yrange = range(c(y1, y2))
 
 	if (ncol %% 2 == 0) warning("'ncol' should be an odd number")
 
@@ -72,8 +86,8 @@ diffdensity.plot <- function(x1, x2, y1, y2, bw = bw.nrd, n = 100,
 		)
 	}
 
-	d1 = kde2d(x1, y1, lims=c(xrange, yrange), n=n, h = bw)
-	d2 = kde2d(x2, y2, lims=c(xrange, yrange), n=n, h = bw)
+	d1 = kde2d(x1, y1, lims=c(xlim, ylim), n=n, h = bw)
+	d2 = kde2d(x2, y2, lims=c(xlim, ylim), n=n, h = bw)
 
 	# Confirm that the grid points for each density estimate are identical
 	stopifnot(identical(d1$x, d2$x))
