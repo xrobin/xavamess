@@ -19,7 +19,7 @@ sparse.extract.index(i, j, nrow, ncol, byrow = FALSE, na.rm = FALSE,
 \item{quiet}{if \code{FALSE}, prints a \code{\link{message}} before removing the missing values. If \code{TRUE}, missing values are silently removed.}
 }
 \value{
-the vector index for the matrix
+the vector index for the matrix. Typically one would want to use this index to \link[=Extract]{extract} from a matrix, and a vector will be returned, regardless of the status of \code{drop}.
 }
 \description{
 Computes a matrix index that extracts individual (i, j) elements. This differ from the standard \link[=Extract]{extraction} where all columns in rows \code{i} and all rows in columns \code{j} are extracted.
