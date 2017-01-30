@@ -1,7 +1,7 @@
 Package: xavamess
 Type: Package
 Title: Useful Miscellaneous Functions
-Version: 0.1
+Version: 0.2
 Date: 2015-02-05
 Author: Xavier Robin
 Maintainer: Xavier Robin <xavier.robin@bric.ku.dk>
