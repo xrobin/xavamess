@@ -17,12 +17,12 @@
 #' @export
 guessCores <- function(verbose = TRUE) {
 	# Try the NCPUS env var
-	ncpus <- as.numeric(Sys.getenv("NCPUS"))
+	ncpus <- as.integer(Sys.getenv("NCPUS"))
 	if (is.na(ncpus)) {
 		# Try to detect the number of cores on the machine
 		ncpus <- detectCores()
 		if (is.na(ncpus)) {
-			ncpus <- 1 # assume single cores
+			ncpus <- 1L # assume single cores
 		}
 		else if (ncpus > 12) {
 			# Too many cores indicate a supercomputer, back to 1 core
