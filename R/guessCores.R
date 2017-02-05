@@ -31,7 +31,7 @@ guessCores <- function(verbose = TRUE, max = NULL) {
 		else if (ncpus > 12) {
 			# Too many cores indicate a supercomputer, back to 1 core
 			# (PBS sets $NCPUS anyway)
-			ncpus <- 1
+			ncpus <- 1L
 		}
 	}
 	else {
