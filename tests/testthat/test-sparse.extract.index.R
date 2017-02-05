@@ -31,3 +31,7 @@ context("sparse.extract.index rejects invalid input")
 expect_error(m[sparse.extract.index(5, 2:3, nrow = 5)])
 expect_error(m[sparse.extract.index(2:5, 2:3, nrow = 5)])
 expect_error(m[sparse.extract.index(c(1, NA), 2:3, nrow = 5)]) # NA without na.rm=TRUE
+
+# Nrow missing or smaller than i
+expect_error(m[sparse.extract.index(5, 2:3, nrow = 4)])
+expect_error(m[sparse.extract.index(5, 2:3)])
