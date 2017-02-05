@@ -6,14 +6,16 @@
 \alias{autoParSapply}
 \title{*apply with auto-parallelization if available}
 \usage{
-autoParLapply(X, FUN, ...)
+autoParLapply(X, FUN, .maxCores = NULL, ...)
 
-autoParSapply(X, FUN, ...)
+autoParSapply(X, FUN, .maxCores = NULL, ...)
 
-autoParApply(X, MARGIN, FUN, ...)
+autoParApply(X, MARGIN, FUN, .maxCores = NULL, ...)
 }
 \arguments{
 \item{X, MARGIN, FUN, ...}{arguments to \code{\link{lapply}}, \code{\link{sapply}} and \code{\link{apply}} or their parallel equivalents}
+
+\item{.maxCores}{limit the number of cores.}
 }
 \description{
 autoPar*apply functions guess the number of cores to use and
