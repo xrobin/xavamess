@@ -4,23 +4,25 @@
 \alias{guessCores}
 \title{Guesses a number of CPU to use for parallel calls}
 \usage{
-guessCores(verbose = TRUE)
+guessCores(verbose = TRUE, max = NULL)
 }
 \arguments{
-\item{verbose}{show the number of cores that was guessed}
+\item{verbose}{show the number of cores that was guessed.}
+
+\item{max}{limit the number of cores. Ignored if \code{NCPUS} was set.}
 }
 \value{
 a number of cores to use
 }
 \description{
-First checks the environment variable NCPUS. This will typically be set in PBS jobs to the number of cores assigned to the job.
-Otherwise, will use the number of CPUs with \code{\link[parallel]{detectCores}}. If that fails or returns more than 12 cores, it will go back to 1 (as this is indicative that the job is being run on a supercomputer but without the NCPUS properly set)
+First checks the environment variable \code{NCPUS}. This will typically be set in PBS jobs to the number of cores assigned to the job.
+Otherwise, it will use the number of CPUs with \code{\link[parallel]{detectCores}}. If that fails or returns more than 12 cores, it will go back to 1 (as this is indicative that the job is being run on a supercomputer but without the NCPUS properly set).
 }
 \details{
 This function is especially useful for use with \code{\link[parallel]{makeCluster}}.
 }
 \examples{
-print(ncpus <- guessCores())
+ncpus <- guessCores(max = 2)
 # With the parallel package
 library(parallel)
 cl = makeCluster(ncpus)
