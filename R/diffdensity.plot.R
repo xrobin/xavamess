@@ -2,7 +2,7 @@
 #' @param x1,x2,y1,y2 the x and y values for distributions 1 and 2.
 #' @param bw a bandwidth selection function such as \code{\link{bw.nrd}}; or a numeric vector for \code{\link{kde2d}}.
 #' @param n the number of grid points.
-#' @param ztransform transformation of the z axis of the 2D density. The default \code{\link{sqrt.transform}} will take square root the differences in \code{z} to increase contrast. Use \code{\link{I}} in order to not transform the axis.
+#' @param ztransform transformation of the z axis of the 2D density. The default \code{\link{sqrt_transform}} will take square root the differences in \code{z} to increase contrast. Use \code{\link{I}} in order to not transform the axis.
 #' @param zlim overrides the limits in the z direction, setting the value where either \code{col1} or \code{col2} is displayed in full brightness.
 #' @param zlim.mult a multiplication factor for zlim, especially useful in \code{relative = TRUE} mode.
 #' @param plot.d1,plot.d2 whether to plot the 2d densities of distributions 1 and 2, respectively. Disabled by default.
@@ -68,7 +68,7 @@
 #'
 #' @export
 diffdensity.plot <- function(x1, x2, y1, y2, bw = bw.nrd, n = 100,
-							 ztransform = sqrt.transform, zlim = NULL, zlim.mult = 1, relative = FALSE,
+							 ztransform = sqrt_transform, zlim = NULL, zlim.mult = 1, relative = FALSE,
 							 plot.d1 = FALSE, plot.d2 = FALSE, plot.diff = TRUE,
 							 draw.contour = TRUE, contour.levels = NULL,
 							 xlim = extendrange(range(c(x1, x2)), f = extendrange.x),

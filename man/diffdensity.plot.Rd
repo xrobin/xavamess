@@ -5,7 +5,7 @@
 \title{Plot the difference of densities between two distributions 1 and 2}
 \usage{
 diffdensity.plot(x1, x2, y1, y2, bw = bw.nrd, n = 100,
-  ztransform = sqrt.transform, zlim = NULL, zlim.mult = 1,
+  ztransform = sqrt_transform, zlim = NULL, zlim.mult = 1,
   relative = FALSE, plot.d1 = FALSE, plot.d2 = FALSE, plot.diff = TRUE,
   draw.contour = TRUE, contour.levels = NULL,
   xlim = extendrange(range(c(x1, x2)), f = extendrange.x),
@@ -20,7 +20,7 @@ diffdensity.plot(x1, x2, y1, y2, bw = bw.nrd, n = 100,
 
 \item{n}{the number of grid points.}
 
-\item{ztransform}{transformation of the z axis of the 2D density. The default \code{\link{sqrt.transform}} will take square root the differences in \code{z} to increase contrast. Use \code{\link{I}} in order to not transform the axis.}
+\item{ztransform}{transformation of the z axis of the 2D density. The default \code{\link{sqrt_transform}} will take square root the differences in \code{z} to increase contrast. Use \code{\link{I}} in order to not transform the axis.}
 
 \item{zlim}{overrides the limits in the z direction, setting the value where either \code{col1} or \code{col2} is displayed in full brightness.}
 

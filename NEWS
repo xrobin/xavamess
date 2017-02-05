@@ -1,3 +1,6 @@
+0.2.9 (*)
+* Rename *.transform to *_transform functions to avoid possible confusion with methods
+
 0.2 (2017-01-30)
 * Many bugfixes and new functions
 
