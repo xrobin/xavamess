@@ -5,14 +5,15 @@
 #' This function will make all objects in the global environment, and all currently loaded packages available to the parallel cluster nodes. This may fail in unexpected ways if other environments are \link[=attach]{attached} to the search path.
 #' @rdname autoParApply
 #' @param X,MARGIN,FUN,... arguments to \code{\link{lapply}}, \code{\link{sapply}} and \code{\link{apply}} or their parallel equivalents
+#' @param .maxCores limit the number of cores.
 #' @importFrom parallel parLapply clusterExport makeCluster parApply parSapply stopCluster
 #' @importFrom stringr str_detect str_match
 #' @examples
 #' autoParLapply(1:10, function(x) x^2)
 #' @export
-autoParLapply <- function(X, FUN, ...) {
+autoParLapply <- function(X, FUN, .maxCores = NULL, ...) {
 	# Do not start more than length(X) workers
-	ncpus <- min(guessCores(verbose = FALSE), length(X))
+	ncpus <- min(guessCores(verbose = FALSE, max = .maxCores), length(X))
 	if (ncpus > 1) {
 		if (!requireNamespace("parallel")) {
 			stop("parallel package required with more than 1 cores")
@@ -35,9 +36,9 @@ autoParLapply <- function(X, FUN, ...) {
 #' @examples
 #' autoParSapply(1:10, function(x) x^2)
 #' @export
-autoParSapply <- function(X, FUN, ...) {
+autoParSapply <- function(X, FUN, .maxCores = NULL, ...) {
 	# Do not start more than length(X) workers
-	ncpus <- min(guessCores(verbose = FALSE), length(X))
+	ncpus <- min(guessCores(verbose = FALSE, max = .maxCores), length(X))
 	if (ncpus > 1) {
 		if (!requireNamespace("parallel")) {
 			stop("parallel package required with more than 1 cores")
@@ -62,11 +63,11 @@ autoParSapply <- function(X, FUN, ...) {
 #' autoParApply(x, 1, sum)
 #' autoParApply(x, c(1, 3), sum)
 #' @export
-autoParApply <- function(X, MARGIN, FUN, ...) {
+autoParApply <- function(X, MARGIN, FUN, .maxCores = NULL, ...) {
 	# What is length(X)?
 	l <- prod(dim(X)[MARGIN])
 	# Do not start more than length(X) workers
-	ncpus <- min(guessCores(verbose = FALSE), l)
+	ncpus <- min(guessCores(verbose = FALSE, max = .maxCores), l)
 	if (ncpus > 1) {
 		if (!requireNamespace("parallel")) {
 			stop("parallel package required with more than 1 cores")
