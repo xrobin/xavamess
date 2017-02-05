@@ -23,10 +23,12 @@ run in parallel if possible. \dQuote{L}, \dQuote{S} and \dQuote{} (nothing) are 
 This function will make all objects in the global environment, and all currently loaded packages available to the parallel cluster nodes. This may fail in unexpected ways if other environments are \link[=attach]{attached} to the search path.
 }
 \examples{
-autoParLapply(1:10, function(x) x^2)
-autoParSapply(1:10, function(x) x^2)
+\dontrun{autoParLapply(1:10, function(x) x^2)}
+\dontrun{autoParSapply(1:10, function(x) x^2)}
+\dontrun{
 x <- array(1:30, dim=c(2, 5, 3))
 autoParApply(x, 1, sum)
 autoParApply(x, c(1, 3), sum)
+}
 }
 

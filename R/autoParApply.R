@@ -9,7 +9,7 @@
 #' @importFrom parallel parLapply clusterExport makeCluster parApply parSapply stopCluster
 #' @importFrom stringr str_detect str_match
 #' @examples
-#' autoParLapply(1:10, function(x) x^2)
+#' \dontrun{autoParLapply(1:10, function(x) x^2)}
 #' @export
 autoParLapply <- function(X, FUN, .maxCores = NULL, ...) {
 	# Do not start more than length(X) workers
@@ -34,7 +34,7 @@ autoParLapply <- function(X, FUN, .maxCores = NULL, ...) {
 
 #' @rdname autoParApply
 #' @examples
-#' autoParSapply(1:10, function(x) x^2)
+#' \dontrun{autoParSapply(1:10, function(x) x^2)}
 #' @export
 autoParSapply <- function(X, FUN, .maxCores = NULL, ...) {
 	# Do not start more than length(X) workers
@@ -59,9 +59,11 @@ autoParSapply <- function(X, FUN, .maxCores = NULL, ...) {
 
 #' @rdname autoParApply
 #' @examples
+#' \dontrun{
 #' x <- array(1:30, dim=c(2, 5, 3))
 #' autoParApply(x, 1, sum)
 #' autoParApply(x, c(1, 3), sum)
+#' }
 #' @export
 autoParApply <- function(X, MARGIN, FUN, .maxCores = NULL, ...) {
 	# What is length(X)?
