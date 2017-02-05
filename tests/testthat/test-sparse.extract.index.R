@@ -14,13 +14,20 @@ expect_identical(m[sparse.extract.index(c(1, 3, 5), c(2, 4, 4), nrow = 5)], c(6L
 expect_identical(m[sparse.extract.index(5, 2, nrow = 5)], 10L)
 
 # NA works
+context("sparse.extract.index removes NA")
 expect_identical(m[sparse.extract.index(c(2, NA, 4), c(2, 4, 5), nrow = 5, na.rm = TRUE)], c(7L, 24L))
 expect_identical(m[sparse.extract.index(c(2, 3, 4), c(2, NA, 5), nrow = 5, na.rm = TRUE)], c(7L, 24L))
 
+# Expect some output
+context("sparse.extract.index removes NA")
+expect_silent(sparse.extract.index(c(2, NA, 4), c(2, 4, 5), nrow = 5, na.rm = TRUE))
+expect_silent(sparse.extract.index(c(2, 3, 4), c(2, NA, 5), nrow = 5, na.rm = TRUE))
+expect_message(sparse.extract.index(c(2, NA, 4), c(2, 4, 5), nrow = 5, na.rm = TRUE, quiet = FALSE))
+expect_message(sparse.extract.index(c(2, 3, 4), c(2, NA, 5), nrow = 5, na.rm = TRUE, quiet = FALSE))
 
 # test errors
 context("sparse.extract.index rejects invalid input")
 # Invalid i and j
 expect_error(m[sparse.extract.index(5, 2:3, nrow = 5)])
 expect_error(m[sparse.extract.index(2:5, 2:3, nrow = 5)])
-expect_error(m[sparse.extract.index(c(1, NA), 2:3, nrow = 5)])
+expect_error(m[sparse.extract.index(c(1, NA), 2:3, nrow = 5)]) # NA without na.rm=TRUE
