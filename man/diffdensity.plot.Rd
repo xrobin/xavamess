@@ -94,10 +94,13 @@ y2 <- rexp(10000, rate = 1.5)
 diffdensity.plot(x1, x2, y1, y2, bw = function(x) bw.nrd(x) * 10)
 
 # A bit off the density is clipped in y, so extend the limits
-diffdensity.plot(x1, x2, y1, y2, bw = function(x) bw.nrd(x) * 10, extendrange.y = .1)
-diffdensity.plot(x1, x2, y1, y2, bw = function(x) bw.nrd(x) * 10, extendrange = .1, extendrange.x = 0)
+diffdensity.plot(x1, x2, y1, y2, bw = function(x) bw.nrd(x) * 10,
+                 extendrange.y = .1)
+diffdensity.plot(x1, x2, y1, y2, bw = function(x) bw.nrd(x) * 10,
+                 extendrange = .1, extendrange.x = 0)
 # Extend in x as well
-diffdensity.plot(x1, x2, y1, y2, bw = function(x) bw.nrd(x) * 10, extendrange = .1)
+diffdensity.plot(x1, x2, y1, y2, bw = function(x) bw.nrd(x) * 10,
+                 extendrange = .1)
 
 }
 \seealso{
