@@ -14,3 +14,10 @@ install.packages("devtools")
 devtools::install_github("xrobin/xavamess")
 ```
 
+Getting started
+-------
+
+```R
+library(xavamess)
+?xavamess
+```
