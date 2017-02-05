@@ -10,5 +10,6 @@ License: GPL-3
 Imports:
     stringr,
     parallel,
-    MASS
+    MASS,
+    testthat
 RoxygenNote: 5.0.1
