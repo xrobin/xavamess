@@ -1,6 +1,6 @@
 library(xavamess)
 
-ncores <- guessCores()
+ncores <- guessCores(verbose = FALSE)
 
 context("guessCores returns sensible results")
 expect_true(is.integer(ncores), label = "ncores is an integer")
@@ -11,4 +11,4 @@ expect_silent(guessCores(verbose = FALSE))
 expect_output(guessCores(verbose = TRUE), sprintf(" %d ", ncores), label = "output contains the number of cores with verbose=TRUE")
 
 context("guessCores's 'max' argument works")
-expect_lte(guessCores(max = 2), 2, label = "returns no more than 2 with max = 2")
+expect_lte(guessCores(max = 2, verbose = FALSE), 2, label = "returns no more than 2 with max = 2")
