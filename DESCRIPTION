@@ -10,7 +10,9 @@ License: GPL-3
 Imports:
     stringr,
     parallel,
-    MASS
+    MASS,
+    methods
 Suggests:
+	dplyr,
     testthat
 RoxygenNote: 5.0.1
