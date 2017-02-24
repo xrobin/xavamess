@@ -11,8 +11,11 @@ Imports:
     stringr,
     parallel,
     MASS,
-    methods
+    methods,
+    Rcpp
 Suggests:
 	dplyr,
     testthat
+LinkingTo: Rcpp
+SystemRequirements: C++11
 RoxygenNote: 5.0.1
