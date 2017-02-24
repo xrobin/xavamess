@@ -11,8 +11,17 @@
 #' @importFrom Rcpp evalCpp
 #' @examples
 #' calcModifiedPeptideP("_(ac)AGDS(ph)DSWDADAFSVEDPVRK_", "AGDS(1)DSWDADAFSVEDPVRK", "")
-#' calcModifiedPeptideP("_AAFNSGKVDIVAINDPFIDLNYM(ox)VYM(ox)FQYDSTHGK_", "", "AAFNSGKVDIVAINDPFIDLNYM(1)VYM(1)FQYDSTHGK")
+#' calcModifiedPeptideP("_AAFNSGKVDIVAINDPFIDLNYM(ox)VYM(ox)FQYDSTHGK_", "",
+#'                      "AAFNSGKVDIVAINDPFIDLNYM(1)VYM(1)FQYDSTHGK")
 #' calcModifiedPeptideP("_AAEM(ox)CY(ph)RK_", "AAEMCY(1)RK", "AAEM(1)CYRK")
+#'
+#' # Also vectorized:
+#' calcModifiedPeptideP(
+#'                      c("_AAEM(ox)CY(ph)RK_", "_(ac)AGDS(ph)DSWDADAFSVEDPVRS(ph)_",
+#'                        "_(ac)AGDS(ph)DSWDADAFSVEDPVRM(ox)_"),
+#'                      c("AAEMCY(0.99)RK", "AGDS(0.995)DSWDADAFS(0.007)VEDPVRS(0.998)",
+#'                        "AGDS(0.995)DSWDADAFS(0.007)VEDPVRM"),
+#'                      c("AAEM(0.87)CYRK", "", "AGDSDSWDADAFSVEDPVRM(0.998)"))
 #' @export
 calcModifiedPeptideP <- function(ModifiedSequences, PhosphoProbabilitySequences, OxProbabilitySequences) {
     .Call('xavamess_calcModifiedPeptideP', PACKAGE = 'xavamess', ModifiedSequences, PhosphoProbabilitySequences, OxProbabilitySequences)
