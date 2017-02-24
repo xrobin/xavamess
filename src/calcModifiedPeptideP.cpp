@@ -113,7 +113,7 @@ double calcModifiedPeptideP(std::string ModifiedSequence, std::string PhosphoPro
 //' @description Integrates the Modification Probabilities from MaxQuant into a localization probability of the peptide
 //' @param ModifiedSequences the "Modified Sequence" column in evidence.txt
 //' @param PhosphoProbabilitySequences the "Phospho (STY) Probabilities" column in evidence.txt
-//' @param ModifiedSequences the "Oxidation (M) Probabilities" column in evidence.txt
+//' @param OxProbabilitySequences the "Oxidation (M) Probabilities" column in evidence.txt
 //' @return the numeric probabilities
 //' @useDynLib xavamess
 //' @importFrom Rcpp evalCpp

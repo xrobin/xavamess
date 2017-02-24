@@ -12,7 +12,7 @@ calcModifiedPeptideP(ModifiedSequences, PhosphoProbabilitySequences,
 
 \item{PhosphoProbabilitySequences}{the "Phospho (STY) Probabilities" column in evidence.txt}
 
-\item{ModifiedSequences}{the "Oxidation (M) Probabilities" column in evidence.txt}
+\item{OxProbabilitySequences}{the "Oxidation (M) Probabilities" column in evidence.txt}
 }
 \value{
 the numeric probabilities
