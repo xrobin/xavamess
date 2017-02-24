@@ -24,10 +24,5 @@ Integrates the Modification Probabilities from MaxQuant into a localization prob
 calcModifiedPeptideP("_(ac)AGDS(ph)DSWDADAFSVEDPVRK_", "AGDS(1)DSWDADAFSVEDPVRK", "")
 calcModifiedPeptideP("_AAFNSGKVDIVAINDPFIDLNYM(ox)VYM(ox)FQYDSTHGK_", "", "AAFNSGKVDIVAINDPFIDLNYM(1)VYM(1)FQYDSTHGK")
 calcModifiedPeptideP("_AAEM(ox)CY(ph)RK_", "AAEMCY(1)RK", "AAEM(1)CYRK")
-
-
-calcModifiedPeptideP("_AGDSDSWDADAM(ox)SVEDPVRK_", "AGDSDSWDADAM(1)SVEDPVRK", "")
-calcModifiedPeptideP("_(ac)AGDS(ph)DS(ph)WDADAFSVEDPVRK_", "AGDS(0.995)DS(0.998)WDADAFS(0.007)VEDPVRK", 2)
-calcModifiedPeptideP("_(ac)AGDS(ph)DSWDADAFSVEDPVRS(ph)_", "AGDS(0.995)DS(0.998)WDADAFS(0.007)VEDPVRS(1)", 2)
 }
 
