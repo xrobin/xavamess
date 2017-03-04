@@ -19,7 +19,7 @@
 #' @export
 elongate <- function(id, wide, pattern = ";") {
 	splitted <- str_split(wide, pattern)
-	long <- data.frame(id = rep.int(id, sapply(splitted, length)), wide = unlist(splitted))
+	long <- data.frame(id = rep.int(id, sapply(splitted, length)), wide = unlist(splitted), stringsAsFactors = getOption("stringsAsFactors"))
 	return(long)
 }
 
