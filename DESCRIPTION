@@ -1,8 +1,8 @@
 Package: xavamess
 Type: Package
 Title: Useful Miscellaneous Functions
-Version: 0.2.9
-Date: 2015-02-05
+Version: 0.3
+Date: 2017-02-24
 Author: Xavier Robin
 Maintainer: Xavier Robin <robin@lindinglab.org>
 Description: A compilation of miscellaneous functions developed by Xavier Robin over the years.
@@ -11,8 +11,11 @@ Imports:
     stringr,
     parallel,
     MASS,
-    methods
+    methods,
+    Rcpp
 Suggests:
 	dplyr,
     testthat
+LinkingTo: Rcpp
+SystemRequirements: C++11
 RoxygenNote: 5.0.1
