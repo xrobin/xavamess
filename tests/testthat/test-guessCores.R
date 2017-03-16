@@ -12,3 +12,17 @@ expect_output(guessCores(verbose = TRUE), sprintf(" %d ", ncores), label = "outp
 
 context("guessCores's 'max' argument works")
 expect_lte(guessCores(max = 2, verbose = FALSE), 2, label = "returns no more than 2 with max = 2")
+
+test_that("Invalid NCPUS are ignored", {
+	Sys.setenv("NCPUS"=0)
+	expect_identical(guessCores(verbose = FALSE), 1L)
+	Sys.setenv("NCPUS"=-1)
+	expect_identical(guessCores(), 1L)
+})
+
+test_that("Valid NCPUS are enforced", {
+	Sys.setenv("NCPUS"=1)
+	expect_identical(guessCores(verbose = FALSE), 1L)
+	Sys.setenv("NCPUS"=100)
+	expect_identical(guessCores(verbose = FALSE), 100L)
+})
