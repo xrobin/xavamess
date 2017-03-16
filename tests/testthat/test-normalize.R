@@ -23,3 +23,9 @@ test_that("rank normalize croaks with NA and na.fail", {
 	na.log.normal[10] <- NA
 	expect_error(rank.normalize(na.log.normal, na.action = na.fail))
 })
+
+test_that("rank normalize croaks with invalid na.action", {
+	na.log.normal <- log.normal
+	na.log.normal[10] <- NA
+	expect_error(rank.normalize(na.log.normal, na.action = "na.omit"))
+})
