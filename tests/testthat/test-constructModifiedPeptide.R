@@ -86,3 +86,13 @@ test_that("constructModifiedPeptide recyles positions", {
 								 c(1, 3))
 	expect_identical(p, c("a;M_1;Y_3;S_6", "S_6;S_8", "S_4;S_6"))
 })
+
+test_that("constructModifiedPeptide works with no position given", {
+	p = constructModifiedPeptide(c("_(ac)M(ox)CY(ph)RKS(ph)_", "_AGDS(ph)DS(ph)WK_"))
+	expect_identical(p, c("a;M_1;Y_3;S_6", "S_4;S_6"))
+})
+
+test_that("constructModifiedPeptide crashes with invalid positions", {
+	expect_error(constructModifiedPeptide("_(ac)M(ox)CY(ph)RKS(ph)_", 1:2), "Incompatible sizes")
+	expect_error(constructModifiedPeptide(c("_(ac)M(ox)CY(ph)RKS(ph)_", "_AGDS(ph)DS(ph)WK_"), 1:10), "Incompatible sizes")
+})
