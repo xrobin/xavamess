@@ -75,7 +75,7 @@ CharacterVector constructModifiedPeptide(CharacterVector ModifiedSequences, Inte
 		}
 		positions = rep_len(positions, s);
 	}
-	else if (positions.size() < s) {
+	else if (positions.size() > s) {
 		stop("Incompatible sizes");
 	}
 
