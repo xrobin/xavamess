@@ -1,3 +1,4 @@
+// [[Rcpp::depends(BH)]]
 #include <boost/algorithm/string/join.hpp>
 #include <Rcpp.h>
 using namespace Rcpp;

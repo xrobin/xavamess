@@ -16,6 +16,6 @@ Imports:
 Suggests:
 	dplyr,
     testthat
-LinkingTo: Rcpp
+LinkingTo: Rcpp, BH
 SystemRequirements: C++11
 RoxygenNote: 5.0.1
