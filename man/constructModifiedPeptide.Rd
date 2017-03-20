@@ -12,7 +12,7 @@ constructModifiedPeptide(ModifiedSequences, positions = integer(),
 
 \item{positions}{the peptides start positions within the protein. Recycled according to the standard rules if necessary, with a warning.}
 
-\item{delimiter}{and optional delimiter to separate the modifications within one peptide}
+\item{delimiter}{an optional delimiter to separate the modifications within one peptide}
 }
 \value{
 the modifications string
@@ -26,7 +26,7 @@ constructModifiedPeptide("_AAFNSGKVDIVAINDPFIDLNYM(ox)VYM(ox)FQYDSTHGK_", 20)
 constructModifiedPeptide("_AAEM(ox)CY(ph)RK_", 10, ":")
 
 # Also vectorized:
-calcModifiedPeptideP(c("_(ac)AGDS(ph)DSWDADAFSVEDPVRK_",
+constructModifiedPeptide(c("_(ac)AGDS(ph)DSWDADAFSVEDPVRK_",
                        "_AAFNSGKVDIVAINDPFIDLNYM(ox)VYM(ox)FQYDSTHGK_",
                        "_AAEM(ox)CY(ph)RK_"), c(1, 20, 10), "+")
 }
