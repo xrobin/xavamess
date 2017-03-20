@@ -36,7 +36,7 @@ guessCores <- function(verbose = TRUE, max = NULL) {
 	}
 	else {
 		if (ncpus <= 0) {
-			return(1L)
+			ncpus <- 1L
 		}
 	}
 	if (verbose) cat(sprintf("Using %s CPUs\n", ncpus))

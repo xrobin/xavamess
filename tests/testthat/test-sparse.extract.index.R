@@ -32,6 +32,10 @@ expect_error(m[sparse.extract.index(5, 2:3, nrow = 5)])
 expect_error(m[sparse.extract.index(2:5, 2:3, nrow = 5)])
 expect_error(m[sparse.extract.index(c(1, NA), 2:3, nrow = 5)]) # NA without na.rm=TRUE
 
-# Nrow missing or smaller than i
+# Uneven i and j
 expect_error(m[sparse.extract.index(5, 2:3, nrow = 4)])
 expect_error(m[sparse.extract.index(5, 2:3)])
+
+# Nrow/ncol missing or smaller than i/j
+expect_error(sparse.extract.index(c(1, 5), 2:3, nrow = 4))
+expect_error(sparse.extract.index(2:3, c(1, 5), ncol = 4))

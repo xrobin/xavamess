@@ -3,3 +3,5 @@
 .RData
 src/*.so
 src/*.o
+src/*.dylib
+tests/testthat/Rplots.pdf

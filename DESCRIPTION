@@ -1,8 +1,8 @@
 Package: xavamess
 Type: Package
 Title: Useful Miscellaneous Functions
-Version: 0.3
-Date: 2017-02-24
+Version: 0.4
+Date: 2017-03-16
 Author: Xavier Robin
 Maintainer: Xavier Robin <robin@lindinglab.org>
 Description: A compilation of miscellaneous functions developed by Xavier Robin over the years.
