@@ -27,3 +27,25 @@ calcModifiedPeptideP <- function(ModifiedSequences, PhosphoProbabilitySequences,
     .Call('xavamess_calcModifiedPeptideP', PACKAGE = 'xavamess', ModifiedSequences, PhosphoProbabilitySequences, OxProbabilitySequences)
 }
 
+#' Construct the modified peptide sequence as a string
+#' @description Takes the Modified Sequence from MaxQuant and turns it into a string of the form a;T_12;M_72.
+#' @param ModifiedSequences the "Modified Sequence" column in evidence.txt
+#' @param positions the peptides start positions within the protein. Recycled according to the standard rules if necessary, with a warning.
+#' @param delimiter and optional delimiter to separate the modifications within one peptide
+#' @return the modifications string
+#' @useDynLib xavamess
+#' @importFrom Rcpp evalCpp
+#' @examples
+#' constructModifiedPeptide("_(ac)AGDS(ph)DSWDADAFSVEDPVRK_", 1)
+#' constructModifiedPeptide("_AAFNSGKVDIVAINDPFIDLNYM(ox)VYM(ox)FQYDSTHGK_", 20)
+#' constructModifiedPeptide("_AAEM(ox)CY(ph)RK_", 10, ":")
+#'
+#' # Also vectorized:
+#' calcModifiedPeptideP(c("_(ac)AGDS(ph)DSWDADAFSVEDPVRK_",
+#'                        "_AAFNSGKVDIVAINDPFIDLNYM(ox)VYM(ox)FQYDSTHGK_",
+#'                        "_AAEM(ox)CY(ph)RK_"), c(1, 20, 10), "+")
+#' @export
+constructModifiedPeptide <- function(ModifiedSequences, positions = integer(), delimiter = ";") {
+    .Call('xavamess_constructModifiedPeptide', PACKAGE = 'xavamess', ModifiedSequences, positions, delimiter)
+}
+

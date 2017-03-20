@@ -18,3 +18,16 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
+// constructModifiedPeptide
+CharacterVector constructModifiedPeptide(CharacterVector ModifiedSequences, IntegerVector positions, std::string delimiter);
+RcppExport SEXP xavamess_constructModifiedPeptide(SEXP ModifiedSequencesSEXP, SEXP positionsSEXP, SEXP delimiterSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< CharacterVector >::type ModifiedSequences(ModifiedSequencesSEXP);
+    Rcpp::traits::input_parameter< IntegerVector >::type positions(positionsSEXP);
+    Rcpp::traits::input_parameter< std::string >::type delimiter(delimiterSEXP);
+    rcpp_result_gen = Rcpp::wrap(constructModifiedPeptide(ModifiedSequences, positions, delimiter));
+    return rcpp_result_gen;
+END_RCPP
+}
