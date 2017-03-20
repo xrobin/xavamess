@@ -1,6 +1,11 @@
 library(xavamess)
 
-context("constructModifiedPeptide works")
+context("constructModifiedPeptide")
+
+test_that("constructModifiedPeptide deals with unmodified peptides", {
+	p = constructModifiedPeptide("_AGDSDSWK_", 1)
+	expect_equal(p, "")
+})
 
 test_that("constructModifiedPeptide deals with one or several phospho only", {
 	p = constructModifiedPeptide("_AGDS(ph)DSWK_", 1)

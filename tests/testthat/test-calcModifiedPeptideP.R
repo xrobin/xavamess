@@ -41,18 +41,26 @@ test_that("calcModifiedPeptideP handles missing probabilities", {
 	expect_equal(p, 0)
 })
 
-
+example <- matrix(c("_(ac)AGDS(ph)DSWDADAFSVEDPVRK_", "AGDS(1)DSWDADAFSVEDPVRK", "",
+					"AGDS(ph)DSWDADAFSVEDPVRK_", "AGDS(0.900)DSWDADAFS(0.1)VEDPVRK", "",
+					"_AAFNSGKVDIVAINDPFIDLNYM(ox)VYM(ox)FQYDSTHGK_", "", "AAFNSGKVDIVAINDPFIDLNYM(1)VYM(1)FQYDSTHGK",
+					"_AAFNSGKVDIVAINDPFIDLNYM(ox)VYM(ox)FQYDSTHGK_", "", "AAFNSGKVDIVAINDPFIDLNYM(1)VYM(0.9)FQYDSTHGK",
+					"_AAEM(ox)CY(ph)RK_", "AAEMCY(0.99)RK", "AAEM(0.87)CYRK",
+					"_(ac)AGDS(ph)DSWDADAFSVEDPVRS(ph)_", "AGDS(0.995)DSWDADAFS(0.007)VEDPVRS(0.998)", "",
+					"_(ac)AGDS(ph)DSWDADAFSVEDPVRM(ox)_", "AGDS(0.995)DSWDADAFS(0.007)VEDPVRM", "AGDSDSWDADAFSVEDPVRM(0.998)"),
+					ncol = 3, byrow = TRUE)
 test_that("calcModifiedPeptideP deals with vectors", {
-	example <- matrix(c("_(ac)AGDS(ph)DSWDADAFSVEDPVRK_", "AGDS(1)DSWDADAFSVEDPVRK", "",
-	"AGDS(ph)DSWDADAFSVEDPVRK_", "AGDS(0.900)DSWDADAFS(0.1)VEDPVRK", "",
-	"_AAFNSGKVDIVAINDPFIDLNYM(ox)VYM(ox)FQYDSTHGK_", "", "AAFNSGKVDIVAINDPFIDLNYM(1)VYM(1)FQYDSTHGK",
-	"_AAFNSGKVDIVAINDPFIDLNYM(ox)VYM(ox)FQYDSTHGK_", "", "AAFNSGKVDIVAINDPFIDLNYM(1)VYM(0.9)FQYDSTHGK",
-	"_AAEM(ox)CY(ph)RK_", "AAEMCY(0.99)RK", "AAEM(0.87)CYRK",
-	"_(ac)AGDS(ph)DSWDADAFSVEDPVRS(ph)_", "AGDS(0.995)DSWDADAFS(0.007)VEDPVRS(0.998)", "",
-	"_(ac)AGDS(ph)DSWDADAFSVEDPVRM(ox)_", "AGDS(0.995)DSWDADAFS(0.007)VEDPVRM", "AGDSDSWDADAFSVEDPVRM(0.998)"),
-	ncol = 3, byrow = TRUE)
 	p = calcModifiedPeptideP(example[,1], example[,2], example[,3])
 
 	expected.p <- c(1, .9, 1, .9, 0.8613, 0.99301, 0.99301)
 	expect_equal(p, expected.p)
 })
+
+
+test_that("calcModifiedPeptideP croaks with invalid sizes", {
+	expect_error(calcModifiedPeptideP(example[,1], example[1:6,2], example[1:6,3]), "Incompatible sizes")
+	expect_error(calcModifiedPeptideP(example[1:6,1], example[,2], example[1:6,3]), "Incompatible sizes")
+	expect_error(calcModifiedPeptideP(example[1:6,1], example[1:6,2], example[,3]), "Incompatible sizes")
+	expect_error(calcModifiedPeptideP(example[1:6,1], example[,2], example[,3]), "Incompatible sizes")
+})
+
