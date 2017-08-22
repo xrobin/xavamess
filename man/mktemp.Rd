@@ -26,4 +26,3 @@ Note that the file is created before the function returns and must be removed ma
 tmpfile <- mktemp()
 file.remove(tmpfile)
 }
-

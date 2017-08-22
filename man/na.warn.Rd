@@ -20,4 +20,3 @@ This function behaves exactly like \code{\link{na.omit}}, except that it prints 
 DF <- data.frame(x = c(1, 2, 3), y = c(0, 10, NA))
 na.warn(DF)
 }
-

@@ -18,4 +18,3 @@ This is strictly equivalent to a call to paste0, with a bit less typing, similar
 \examples{
 "Hello" \%+\% " World!"
 }
-

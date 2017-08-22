@@ -106,4 +106,3 @@ diffdensity.plot(x1, x2, y1, y2, bw = function(x) bw.nrd(x) * 10,
 \seealso{
 \href{http://stackoverflow.com/questions/28521145/r-calculate-and-plot-difference-between-two-density-countours}{The Stack Overflow answer} that inspired this function
 }
-

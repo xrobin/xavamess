@@ -29,4 +29,3 @@ cl = makeCluster(ncpus)
 parLapply(cl = cl, 1:ncpus, log)
 stopCluster(cl)
 }
-

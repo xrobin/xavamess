@@ -34,4 +34,3 @@ calcModifiedPeptideP(
                        "AGDS(0.995)DSWDADAFS(0.007)VEDPVRM"),
                      c("AAEM(0.87)CYRK", "", "AGDSDSWDADAFSVEDPVRM(0.998)"))
 }
-

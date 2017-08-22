@@ -34,4 +34,3 @@ m[sparse.extract.index(1:5, 1:5, nrow = 5)] # Returns the diagonal only
 m[c(1, 3, 5), c(2, 4, 4)]
 m[sparse.extract.index(c(1, 3, 5), c(2, 4, 4), nrow = 5)]
 }
-

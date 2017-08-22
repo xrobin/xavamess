@@ -28,4 +28,3 @@ lettersToDecimal(tolower("Bczf"))
 lettersToDecimal("aaaa", "bczf")
 lettersToDecimal(c("aaaa", "bczf"))
 }
-

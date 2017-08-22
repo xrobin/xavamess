@@ -29,4 +29,3 @@ elongated <- data.frame(Protein = elongated.score$id,
 stopifnot(identical(dim(elongated.score), dim(elongated.sequence)))
 }
 }
-

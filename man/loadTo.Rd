@@ -2,8 +2,8 @@
 % Please edit documentation in R/loadToList.R
 \name{loadTo}
 \alias{loadTo}
-\alias{loadToEnv}
 \alias{loadToList}
+\alias{loadToEnv}
 \title{Load to a list of environment
 Loads an R dataset written with the \code{\link{save}} function into a \code{\link{list}} or \code{\link{environment}}}
 \usage{
@@ -40,4 +40,3 @@ stopifnot(isTRUE(all.equal(e, testEnv)))
 }
 file.remove(fname)
 }
-

@@ -30,4 +30,3 @@ constructModifiedPeptide(c("_(ac)AGDS(ph)DSWDADAFSVEDPVRK_",
                        "_AAFNSGKVDIVAINDPFIDLNYM(ox)VYM(ox)FQYDSTHGK_",
                        "_AAEM(ox)CY(ph)RK_"), c(1, 20, 10), "+")
 }
-

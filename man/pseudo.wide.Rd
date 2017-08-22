@@ -9,4 +9,3 @@
 This data set list proteins with two pseudo-wide columns
 containing the identified sequence and associate score
 }
-

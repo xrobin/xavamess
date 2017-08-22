@@ -38,4 +38,3 @@ hist(rank.normalize(not.normal)) # Shouldn't fail
 \dontrun{hist(rank.normalize(not.normal, na.action = na.fail))} # Should fail
 
 }
-

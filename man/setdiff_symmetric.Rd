@@ -21,4 +21,3 @@ If \pkg{dplyr} is present, \code{\link{data.frame}}s can also be used as input.
 \examples{
 setdiff_symmetric(1:10, 5:15)
 }
-
