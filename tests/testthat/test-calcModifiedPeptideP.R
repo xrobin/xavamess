@@ -41,6 +41,24 @@ test_that("calcModifiedPeptideP handles missing probabilities", {
 	expect_equal(p, 0)
 })
 
+
+test_that("calcModifiedPeptideP handles fully missing Ox probabilities", {
+	p = calcModifiedPeptideP("_MLPHAPGVQMQAIPEDAIPEES(ph)GDEDEDDPDK_", "", NULL)
+	expect_equal(p, 0)
+	# Named
+	p = calcModifiedPeptideP("_MLPHAPGVQMQAIPEDAIPEES(ph)GDEDEDDPDK_", PhosphoProbabilitySequences = "", OxProbabilitySequences = NULL)
+	expect_equal(p, 0)
+})
+
+
+test_that("calcModifiedPeptideP handles missing Ph probabilities", {
+	p = calcModifiedPeptideP("_M(ox)LPHAPGVQM(ox)QAIPEDAIPEESGDEDEDDPDK_", NULL, "")
+	expect_equal(p, 0)
+	# Named
+	p = calcModifiedPeptideP("_M(ox)LPHAPGVQM(ox)QAIPEDAIPEESGDEDEDDPDK_", PhosphoProbabilitySequences = NULL, OxProbabilitySequences = "")
+	expect_equal(p, 0)
+})
+
 example <- matrix(c("_(ac)AGDS(ph)DSWDADAFSVEDPVRK_", "AGDS(1)DSWDADAFSVEDPVRK", "",
 					"AGDS(ph)DSWDADAFSVEDPVRK_", "AGDS(0.900)DSWDADAFS(0.1)VEDPVRK", "",
 					"_AAFNSGKVDIVAINDPFIDLNYM(ox)VYM(ox)FQYDSTHGK_", "", "AAFNSGKVDIVAINDPFIDLNYM(1)VYM(1)FQYDSTHGK",
