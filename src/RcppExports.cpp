@@ -5,16 +5,16 @@
 
 using namespace Rcpp;
 
-// calcModifiedPeptideP
-std::vector<double> calcModifiedPeptideP(std::vector<std::string> ModifiedSequences, std::vector<std::string> PhosphoProbabilitySequences, std::vector<std::string> OxProbabilitySequences);
-RcppExport SEXP xavamess_calcModifiedPeptideP(SEXP ModifiedSequencesSEXP, SEXP PhosphoProbabilitySequencesSEXP, SEXP OxProbabilitySequencesSEXP) {
+// calcModifiedPeptidePCpp
+std::vector<double> calcModifiedPeptidePCpp(std::vector<std::string> ModifiedSequences, std::vector<std::string> PhosphoProbabilitySequences, std::vector<std::string> OxProbabilitySequences);
+RcppExport SEXP xavamess_calcModifiedPeptidePCpp(SEXP ModifiedSequencesSEXP, SEXP PhosphoProbabilitySequencesSEXP, SEXP OxProbabilitySequencesSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
     Rcpp::traits::input_parameter< std::vector<std::string> >::type ModifiedSequences(ModifiedSequencesSEXP);
     Rcpp::traits::input_parameter< std::vector<std::string> >::type PhosphoProbabilitySequences(PhosphoProbabilitySequencesSEXP);
     Rcpp::traits::input_parameter< std::vector<std::string> >::type OxProbabilitySequences(OxProbabilitySequencesSEXP);
-    rcpp_result_gen = Rcpp::wrap(calcModifiedPeptideP(ModifiedSequences, PhosphoProbabilitySequences, OxProbabilitySequences));
+    rcpp_result_gen = Rcpp::wrap(calcModifiedPeptidePCpp(ModifiedSequences, PhosphoProbabilitySequences, OxProbabilitySequences));
     return rcpp_result_gen;
 END_RCPP
 }
@@ -30,4 +30,15 @@ BEGIN_RCPP
     rcpp_result_gen = Rcpp::wrap(constructModifiedPeptide(ModifiedSequences, positions, delimiter));
     return rcpp_result_gen;
 END_RCPP
+}
+
+static const R_CallMethodDef CallEntries[] = {
+    {"xavamess_calcModifiedPeptidePCpp", (DL_FUNC) &xavamess_calcModifiedPeptidePCpp, 3},
+    {"xavamess_constructModifiedPeptide", (DL_FUNC) &xavamess_constructModifiedPeptide, 3},
+    {NULL, NULL, 0}
+};
+
+RcppExport void R_init_xavamess(DllInfo *dll) {
+    R_registerRoutines(dll, NULL, CallEntries, NULL, NULL);
+    R_useDynamicSymbols(dll, FALSE);
 }
