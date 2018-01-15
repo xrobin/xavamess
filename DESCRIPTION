@@ -12,10 +12,8 @@ Imports:
     parallel,
     MASS,
     methods,
-    Rcpp
 Suggests:
 	dplyr,
     testthat
-LinkingTo: Rcpp, BH
 SystemRequirements: C++11
 RoxygenNote: 6.0.1
