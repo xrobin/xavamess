@@ -5,7 +5,7 @@ Version: 0.5
 Date: 2017-03-24
 Author: Xavier Robin
 Maintainer: Xavier Robin <robin@lindinglab.org>
-Description: A compilation of miscellaneous functions developed by Xavier Robin over the years.
+Description: A compilation of miscellaneous functions I developed over the years.
 License: GPL-3
 Imports:
     stringr,
