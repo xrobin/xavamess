@@ -4,7 +4,7 @@
 xavamess
 =============
 
-A compilation of miscellaneous functions developed by me over the years.
+A compilation of miscellaneous functions I developed over the years.
 
 Installation
 -------
