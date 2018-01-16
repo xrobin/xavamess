@@ -5,3 +5,4 @@
 ^src/.*\.so
 codecov.yml
 tests/testthat/Rplots.pdf
+last.dump.rda
