@@ -1,19 +1,18 @@
 Package: xavamess
 Type: Package
 Title: Useful Miscellaneous Functions
-Version: 0.5
-Date: 2017-03-24
+Version: 0.6
+Date: 2018-01-18
 Author: Xavier Robin
 Maintainer: Xavier Robin <robin@lindinglab.org>
 Description: A compilation of miscellaneous functions I developed over the years.
 License: GPL-3
 Imports:
+	dplyr,
     stringr,
     parallel,
     MASS,
-    methods,
+    methods
 Suggests:
-	dplyr,
     testthat
-SystemRequirements: C++11
 RoxygenNote: 6.0.1
