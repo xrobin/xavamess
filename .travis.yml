@@ -6,3 +6,6 @@ r_packages:
 
 after_success:
   - Rscript -e 'library(covr); codecov()'
+
+env:
+  - _R_CHECK_FORCE_SUGGESTS_=0
