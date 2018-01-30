@@ -14,5 +14,6 @@ Imports:
     MASS,
     methods
 Suggests:
-    testthat
+    testthat,
+    biomaRt
 RoxygenNote: 6.0.1
