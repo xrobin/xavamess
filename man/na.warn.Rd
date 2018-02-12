@@ -2,8 +2,7 @@
 % Please edit documentation in R/na.warn.R
 \name{na.warn}
 \alias{na.warn}
-\title{Remove missing values with a warning
-This function behaves exactly like \code{\link{na.omit}}, except that it prints a warning if any missing value was removed}
+\title{Remove missing values with a warning}
 \usage{
 na.warn(object, ...)
 }
@@ -13,7 +12,6 @@ na.warn(object, ...)
 \item{...}{additional arguments}
 }
 \description{
-Remove missing values with a warning
 This function behaves exactly like \code{\link{na.omit}}, except that it prints a warning if any missing value was removed
 }
 \examples{

@@ -1,4 +1,5 @@
 #' Remove missing values with a warning
+#'
 #' This function behaves exactly like \code{\link{na.omit}}, except that it prints a warning if any missing value was removed
 #' @param object an R object
 #' @param ... additional arguments
