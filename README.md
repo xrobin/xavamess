@@ -10,7 +10,7 @@ Installation
 -------
 
 ```R
-install.packages("devtools")
+if (! requireNamespace("devtools")) install.packages("devtools")
 devtools::install_github("xrobin/xavamess")
 ```
 
