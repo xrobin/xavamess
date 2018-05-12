@@ -15,6 +15,9 @@ mktemp <- function(template = "file.XXXXXXXXXX", tmpdir = tempdir()) {
 	if (length(template) > 1) {
 		stop("Expected a single 'template'")
 	}
+	if (length(tmpdir) > 1) {
+		stop("Expected a single 'tmpdir'")
+	}
 	if (grepl("[^a-zA-Z0-9.]", template)) {
 		stop("Only alphanumeric characters, underscore and dots are allowed in 'template'")
 	}

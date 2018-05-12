@@ -16,6 +16,14 @@ test_that("mktemp rejects illegal templates", {
 	})
 })
 
+test_that("mktemp rejects illegal tmpdir", {
+	illegal.tmpdir <- c("/tm p/", "/tmp/%/")
+	expect_error(mktemp(tmpdir = illegal.tmpdir))
+	lapply(illegal.tmpdir, function(i) {
+		expect_error(mktemp(tmpdir = i))
+	})
+})
+
 test_that("mktemp works with legal templates", {
 	legal.templates <- c("XXX", "a.XXX")
 	lapply(legal.templates, function(i) {
