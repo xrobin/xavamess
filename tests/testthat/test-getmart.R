@@ -25,7 +25,7 @@ test_that("getMart works on mouse inputs", {
 	library(biomaRt)
 	ensembl.proteins <- c("ENSMUSP00000004055", "ENSMUSP00000002708")
 	mart <- getMart(88, "mmusculus")
-	mart.mouse <- getMart(88, "mmusculus")
+	mart.mouse <- getMart(88, "mouse")
 	expect_identical(mart, mart.mouse)
 
 	res <- getBM(attributes = c("ensembl_peptide_id", "uniprotswissprot", "refseq_peptide", "mgi_symbol"), filters = "ensembl_peptide_id", values = ensembl.proteins, mart = mart)
