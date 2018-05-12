@@ -29,3 +29,11 @@ test_that("diffdensity.plot runs with zlim and relative", {
 test_that("diffdensity.plot plot.d1 and d2 run", {
 	expect_silent(diffdensity.plot(setosa$Sepal.Length, versicolor$Sepal.Length, setosa$Sepal.Width, versicolor$Sepal.Width, bw = 0.5, n = 10, plot.d1 = TRUE, plot.d2 = TRUE))
 })
+
+test_that("diffdensity.plot accepts a bw function", {
+	diffd <- diffdensity.plot(setosa$Sepal.Length, versicolor$Sepal.Length, setosa$Sepal.Width, versicolor$Sepal.Width, bw = function(x) return(0.5), n = 10)
+	expect_equal(diffd, expected_diffd)
+	# And has an effect on the output
+	diffd <- diffdensity.plot(setosa$Sepal.Length, versicolor$Sepal.Length, setosa$Sepal.Width, versicolor$Sepal.Width, bw = function(x) return(0.6), n = 10)
+	expect_false(isTRUE(all.equal(diffd, expected_diffd)))
+})
