@@ -6,12 +6,13 @@
 \usage{
 diffdensity.plot(x1, x2, y1, y2, bw = bw.nrd, n = 100,
   ztransform = sqrt_transform, zlim = NULL, zlim.mult = 1,
-  relative = FALSE, plot.d1 = FALSE, plot.d2 = FALSE, plot.diff = TRUE,
-  draw.contour = TRUE, contour.levels = NULL,
+  relative = FALSE, plot.d1 = FALSE, plot.d2 = FALSE,
+  plot.diff = TRUE, draw.contour = TRUE, contour.levels = NULL,
   xlim = extendrange(range(c(x1, x2)), f = extendrange.x),
-  ylim = extendrange(range(c(y1, y2)), f = extendrange.y), extendrange = 0,
-  extendrange.x = extendrange, extendrange.y = extendrange, col1 = "blue",
-  col2 = "red", bg.col = "white", ncol = 101, add = FALSE, ...)
+  ylim = extendrange(range(c(y1, y2)), f = extendrange.y),
+  extendrange = 0, extendrange.x = extendrange,
+  extendrange.y = extendrange, col1 = "blue", col2 = "red",
+  bg.col = "white", ncol = 101, add = FALSE, ...)
 }
 \arguments{
 \item{x1, x2, y1, y2}{the x and y values for distributions 1 and 2.}
