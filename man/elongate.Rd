@@ -4,7 +4,7 @@
 \alias{elongate}
 \title{Elongates a pseudo-wide column}
 \usage{
-elongate(id, wide, pattern = ";")
+elongate(id, wide, pattern = ";", ...)
 }
 \arguments{
 \item{id}{a column that will not be splitted}
@@ -12,6 +12,8 @@ elongate(id, wide, pattern = ";")
 \item{wide}{the column to split}
 
 \item{pattern}{the character or regex used to split up the wide column (see \link{str_split})}
+
+\item{...}{additional parameters for \code{\link{data.frame}}, such as \code{stringsAsFactors}.}
 }
 \description{
 Takes a pseudo-wide column and tranform it into a long format
