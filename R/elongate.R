@@ -2,7 +2,8 @@
 #' @description Takes a pseudo-wide column and tranform it into a long format
 #' @param id a column that will not be splitted
 #' @param wide the column to split
-#' @param ... additional parameters for \code{\link{data.frame}}, such as \code{stringsAsFactors}.
+#' @param stringsAsFactors should always be FALSE
+#' @param ... additional parameters for \code{\link{data.frame}}
 #' @param pattern the character or regex used to split up the wide column (see \link{str_split})
 #' @examples
 #' data(pseudo.wide)
@@ -18,9 +19,9 @@
 #' }
 #' @importFrom stringr str_split
 #' @export
-elongate <- function(id, wide, pattern = ";", ...) {
+elongate <- function(id, wide, pattern = ";", stringsAsFactors=FALSE, ...) {
 	splitted <- str_split(wide, pattern)
-	long <- data.frame(id = rep.int(id, sapply(splitted, length)), wide = unlist(splitted), ...)
+	long <- data.frame(id = rep.int(id, sapply(splitted, length)), wide = unlist(splitted), stringsAsFactors=stringsAsFactors, ...)
 	return(long)
 }
 
