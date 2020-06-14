@@ -1,7 +1,7 @@
 #' Symmetric setdiff
 #' @description performs \emph{symmetric} set difference
 #' @details
-#' The \code{\link[base]{setdiff}} function from the \pkg{base} package performs assymetric difference of its arguments and returns the members of \code{x} missing in \code{y}. This function performs a symmetric difference instead, where both members of \code{x} missing in \code{y} and members of \code{y} missing in \code{x} will be returned.
+#' The \code{\link[base:sets]{setdiff}} function from the \pkg{base} package performs assymetric difference of its arguments and returns the members of \code{x} missing in \code{y}. This function performs a symmetric difference instead, where both members of \code{x} missing in \code{y} and members of \code{y} missing in \code{x} will be returned.
 #'
 #' If \pkg{dplyr} is present, \code{\link{data.frame}}s can also be used as input.
 #' @aliases sets
