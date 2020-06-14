@@ -4,7 +4,9 @@
 \name{pseudo.wide}
 \alias{pseudo.wide}
 \title{A dummy data set in pseudo-wide format}
-\format{a \code{data.frame} with 3 columns.}
+\format{
+a \code{data.frame} with 3 columns.
+}
 \description{
 This data set list proteins with two pseudo-wide columns
 containing the identified sequence and associate score

@@ -4,8 +4,15 @@
 \alias{sparse.extract.index}
 \title{Sparse indexing of matrices}
 \usage{
-sparse.extract.index(i, j, nrow, ncol, byrow = FALSE, na.rm = FALSE,
-  quiet = TRUE)
+sparse.extract.index(
+  i,
+  j,
+  nrow,
+  ncol,
+  byrow = FALSE,
+  na.rm = FALSE,
+  quiet = TRUE
+)
 }
 \arguments{
 \item{i, j}{the indices of the elements to extract. \code{i} and \code{j} must have the same length.}
