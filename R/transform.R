@@ -17,7 +17,6 @@ sqrt_transform <- function(x) sign(x) * sqrt(abs(x))
 #' @examples
 #' curve(power_transform(x), -2, 2, n = 1000)
 #' curve(power_transform(x, 3), -2, 2, n = 1000)
-#' @rdname transformations
 #' @export power_transform
 power_transform <- function(x, exp = 1/2) sign(x) * abs(x)^exp
 
