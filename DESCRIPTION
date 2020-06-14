@@ -6,6 +6,7 @@ Date: 2018-01-18
 Author: Xavier Robin
 Maintainer: Xavier Robin <robin@lindinglab.org>
 Description: A compilation of miscellaneous functions I developed over the years.
+Encoding: UTF-8
 License: GPL-3
 Imports:
 	dplyr,
