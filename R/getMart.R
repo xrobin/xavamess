@@ -5,12 +5,14 @@
 #' if(require("biomaRt")) {
 #'   ensembl.proteins <- c("ENSP00000361930", "ENSP00000309503")
 #'   mart <- getMart(88, "human")
-#'   getBM(attributes = c("ensembl_peptide_id", "uniprotswissprot", "refseq_peptide", "hgnc_symbol"), filters = "ensembl_peptide_id", values = ensembl.proteins, mart = mart)
+#'   getBM(attributes = c("ensembl_peptide_id", "uniprotswissprot", "refseq_peptide", "hgnc_symbol"),
+#'         filters = "ensembl_peptide_id", values = ensembl.proteins, mart = mart)
 #'
 #'   # Mouse example
 #'   ensembl.proteins <- c("ENSMUSP00000004055", "ENSMUSP00000002708")
 #'   mart <- getMart(88, "mmusculus")
-#'   getBM(attributes = c("ensembl_peptide_id", "uniprotswissprot", "refseq_peptide", "mgi_symbol"), filters = "ensembl_peptide_id", values = ensembl.proteins, mart = mart)
+#'   getBM(attributes = c("ensembl_peptide_id", "uniprotswissprot", "refseq_peptide", "mgi_symbol"),
+#'         filters = "ensembl_peptide_id", values = ensembl.proteins, mart = mart)
 #' }
 #' @export
 getMart <- function(version, species = "human") {
